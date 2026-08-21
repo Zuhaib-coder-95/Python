@@ -36,7 +36,7 @@ class Sprite(pygame.sprite.Sprite):
             boundary_hit = True
 
         if self.rect.top <= 0 or self.rect.bottom >= 400:
-            self.velocity[0] = -self.velocity[0]
+            self.velocity[1] = -self.velocity[1]
             boundary_hit = True
 
         if boundary_hit:
@@ -74,3 +74,15 @@ while not exit:
             sp1.change_color()
         elif event.type == BACKGROUND_COLOR_CHANGE_EVENT:
             change_background_color()
+
+    all_sprites_list.update()
+
+    screen.fill(bg_color)
+
+    all_sprites_list.draw(screen)
+
+    pygame.display.flip()
+
+    clock.tick(240)
+
+pygame.quit
